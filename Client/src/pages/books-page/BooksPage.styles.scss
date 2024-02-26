@@ -1,0 +1,15 @@
+.books-page {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    justify-content: space-between;
+    margin: 30px auto;
+    padding: 0rem 13rem;
+}
+
+
+.ant-table-cell {
+    --tw-bg-opacity: 1;
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+    width: auto;
+}

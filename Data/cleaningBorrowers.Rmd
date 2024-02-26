@@ -1,0 +1,46 @@
+---
+title: "LMS Cleaning"
+author: "Srilokh"
+date: "11/6/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+# GET THE DATA
+setwd("~/Projects/library-management-system/Data")
+library(readr)
+borrowers <- read_csv("uploadDataJS/borrowers.csv")
+
+```
+
+
+```{r}
+
+# CONCATENATE FIRST & LAST NAME
+borrowers$bname <- paste(borrowers$first_name, borrowers$last_name)
+
+# RENAME FIRST COLUMN
+colnames(borrowers)[1] = "card_id"
+
+# SUBSET DATA TO ONLY THE NEEDED COLUMNS 
+borrowers <- borrowers[, c("card_id", "ssn", "bname", "address", "phone")]
+
+```
+
+``` {r}
+# REMOVE SPECIFIC CHARACTERS FROM STRING 
+# borrowers$card_id <- gsub('ID', '', borrowers$card_id)
+borrowers$ssn <- gsub("-","",borrowers$ssn)
+borrowers$phone <- gsub("[(,),-]","",borrowers$phone)
+borrowers$phone <- gsub(" ","",borrowers$phone)
+
+```
+
+```{r}
+write.csv(borrowers, file="cleanBorrowers.csv", row.names = FALSE)
+```

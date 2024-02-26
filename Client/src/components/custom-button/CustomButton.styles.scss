@@ -1,0 +1,111 @@
+.custom-button {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    min-width: 165px;
+    height: 40px;
+    padding: 0 35px 0 35px;
+    margin: 2px;
+    font-weight: bolder;
+    font-size: 15px;
+    line-height: 40px;
+    font-family: "Arial";
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  
+    background-color: #006A4E;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        color: black;
+    
+        background-color: white;
+        border: 1px solid black;
+      }    
+}
+
+.custom-button-wide {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  min-width: 500px;
+  height: 50px;
+  padding: 0 35px 0 35px;
+  margin: 2px;
+  font-weight: bolder;
+  font-size: 15px;
+  line-height: 50px;
+  font-family: "Arial";
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  background-color: #006A4E;
+  border: 1px solid black;
+  cursor: pointer;
+
+  &:hover {
+      color: black;
+  
+      background-color: white;
+      border: 1px solid black;
+    }    
+}
+
+.custom-button-small {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 170px;
+  height: 40px;
+  padding: 0 35px 0 35px;
+  margin: 2px;
+  font-weight: bolder;
+  font-size: 12px;
+  line-height: 40px;
+  font-family: "Arial";
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  background-color: #006A4E;
+  border: 1px solid black;
+  cursor: pointer;
+
+  &:hover {
+      color: black;
+  
+      background-color: white;
+      border: 1px solid black;
+    }    
+}
+
+
+.custom-button-small-extra {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 70px;
+  height: 30px;
+ // margin: 2px;
+  font-weight: bolder;
+  font-size: 10px;
+  line-height: 32.5px;
+  font-family: "Arial";
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  background-color: #006A4E;
+  border: 1px solid black;
+  cursor: pointer;
+
+  &:hover {
+      color: black;
+  
+      background-color: white;
+      border: 1px solid black;
+    }    
+}

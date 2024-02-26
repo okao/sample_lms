@@ -1,0 +1,16 @@
+// .borrowers-page {
+//     display: flex;
+//     align-items: center;
+//     width: auto;
+//     justify-content: space-between;
+//     flex-direction: column;
+// }
+
+.borrowers-page {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    justify-content: space-between;
+    margin: 30px auto;
+    padding: 0rem 13rem;
+}

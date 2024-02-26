@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model authors {
+  author_id    String         @id @db.VarChar
+  name         String         @db.VarChar
+  book_authors book_authors[]
+}
+
+model book {
+  isbn         String         @id @db.VarChar
+  title        String         @db.VarChar
+  book_authors book_authors[]
+  book_loans   book_loans[]
+}
+
+model book_authors {
+  id        String  @id @db.VarChar
+  author_id String  @db.VarChar
+  isbn      String  @db.VarChar
+  authors   authors @relation(fields: [author_id], references: [author_id], onDelete: NoAction, onUpdate: NoAction)
+  book      book    @relation(fields: [isbn], references: [isbn], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model book_loans {
+  loan_id  String    @id @db.VarChar
+  isbn     String    @db.VarChar
+  card_id  String    @db.VarChar
+  date_out DateTime  @db.Date
+  due_date DateTime  @db.Date
+  date_in  DateTime? @db.Date
+  borrower borrower  @relation(fields: [card_id], references: [card_id], onDelete: NoAction, onUpdate: NoAction)
+  book     book      @relation(fields: [isbn], references: [isbn], onDelete: NoAction, onUpdate: NoAction)
+  fines    fines?
+}
+
+model borrower {
+  card_id    String       @id @db.VarChar
+  ssn        Int
+  bname      String       @db.VarChar
+  address    String       @db.VarChar
+  phone      String       @db.VarChar
+  book_loans book_loans[]
+}
+
+model fines {
+  loan_id     String     @id @db.VarChar
+  fine_amount Float
+  paid        Boolean
+  book_loans  book_loans @relation(fields: [loan_id], references: [loan_id], onDelete: NoAction, onUpdate: NoAction)
+}

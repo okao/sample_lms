@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "csvtojson": "^2.0.10",
+    "prisma": "^4.6.1",
+    "uuid": "^9.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

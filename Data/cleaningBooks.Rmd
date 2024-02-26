@@ -1,0 +1,43 @@
+---
+title: "LMS Cleaning"
+author: "Srilokh"
+date: "11/6/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# GET THE DATA
+setwd("~/Projects/EOG/HackUTD-EOG")
+library(readr)
+books <- read_csv("uploadDataJS/books.csv")
+
+# CREATE A NEW DATASET OF ONLY RELEVANT COLUMNS
+# TO EXTRACT COLUMNS use df[, c()]
+reducedBooks <- books[, c("ISBN10", "Title", "Author")]
+
+# NUM ELEMENTS IN TOTAL
+total_elements <- ncol(reducedBooks) * nrow(reducedBooks)
+print(paste("Total elements: ", total_elements))
+
+# NUM NA's
+numNa <- sum(is.na(reducedBooks))
+print(paste("Removing number of NA's: ", numNa))
+```
+
+```{r}
+# EXTRACT MISSING ROWS
+missingRows <- reducedBooks[rowSums(is.na(reducedBooks)) > 0,]
+
+# EXTRACT ONLY ROWS WITH ALL VALUE
+cleanReducedBooks <- reducedBooks[rowSums(is.na(reducedBooks)) == 0,]
+
+
+# OUTPUT DATA
+write.csv(cleanReducedBooks, "cleanBooks.csv", row.names=FALSE)
+
+
+```

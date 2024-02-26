@@ -1,0 +1,15 @@
+.loans-page{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-right: 45%;
+    
+    span {
+        display: flex;
+        padding-left: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+}
